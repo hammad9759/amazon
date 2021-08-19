@@ -1,43 +1,31 @@
-// rfc
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import Product from '../components/Product';
-import LodingBox from '../components/LodingBox';
+import LoadingBox from '../components/LodingBox';
 import MessageBox from '../components/MessageBox';
+import { useDispatch, useSelector } from 'react-redux';
+import { listProducts } from '../actions/productActions';
 
 export default function HomeScreen() {
-    const [products, setProducts] = useState([]);
-    const [loding, setLoding] = useState(false);
-    const [error, setError] = useState(false);
-    useEffect(() => {
-        const fetchdata = async () => {
-            try {
-                setLoding(true);
-                const { data } = await axios.get('/api/products');
-                setLoding(false);
-                setProducts(data);
-            } catch (err) {
-                setError(err.message);
-                setLoding(false);
-            }
-        };
-        fetchdata();
-    }, []);
-    return (
-        <div>
-            {loding ? ( 
-                <LodingBox></LodingBox>
-            ) :  error ? ( 
-                <MessageBox variant="danger">{error}</MessageBox>
-            ): (
-                <div className="content">
-                    <ul className="products">
-                        {products.map((product) => (
-                            <Product key={product._id} product={product}></Product>
-                        ))}
-                    </ul>
-                </div>
-            )}
+  const dispatch = useDispatch();
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
+
+  useEffect(() => {
+    dispatch(listProducts());
+  }, [dispatch]);
+  return (
+    <div>
+      {loading ? (
+        <LoadingBox></LoadingBox>
+      ) : error ? (
+        <MessageBox variant="danger">{error}</MessageBox>
+      ) : (
+        <div className="row center">
+          {products.map((product) => (
+            <Product key={product._id} product={product}></Product>
+          ))}
         </div>
-    );
+      )}
+    </div>
+  );
 }
