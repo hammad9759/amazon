@@ -30,7 +30,9 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
+.qty_selector{
+  padding: 1px 10px;
+}
 .main {
   grid-area: main;
 }
