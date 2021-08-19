@@ -1,5 +1,4 @@
 import React from 'react';
-//hammad
 export default function LoadingBox() {
   return (
     <div className="hmd-loading loading">
