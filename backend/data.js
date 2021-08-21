@@ -15,7 +15,6 @@ const data = {
         },
     ],
     products: [{
-            _id: '1',
             name: 'Nike Slim Shirt 1',
             category: 'shirts',
             image: '/images/d1.jpg',
@@ -27,7 +26,6 @@ const data = {
             description: 'this is high quality product in the market now a days.',
         },
         {
-            _id: '2',
             name: 'Nike Slim Shirt  2',
             category: 'shirts',
             image: '/images/d2.jpg',
@@ -39,7 +37,6 @@ const data = {
             description: 'this is high quality product in the market now a days.',
         },
         {
-            _id: '3',
             name: 'Nike Slim Shirt 3',
             category: 'shirts',
             image: '/images/d3.jpg',
@@ -51,7 +48,6 @@ const data = {
             description: 'this is high quality product in the market now a days.',
         },
         {
-            _id: '4',
             name: 'Nike Slim Shirt 4',
             category: 'shirts',
             image: '/images/d1.jpg',
@@ -63,7 +59,6 @@ const data = {
             description: 'this is high quality product in the market now a days.',
         },
         {
-            _id: '5',
             name: 'Nike Slim Shirt 5',
             category: 'shirts',
             image: '/images/d2.jpg',
@@ -75,7 +70,6 @@ const data = {
             description: 'this is high quality product in the market now a days.',
         },
         {
-            _id: '6',
             name: 'Nike Slim Shirt 6',
             category: 'pants',
             image: '/images/d3.jpg',
@@ -87,7 +81,6 @@ const data = {
             description: 'this is high quality product in the market now a days.',
         },
         {
-            _id: '7',
             name: 'Nike Slim Shirt 7',
             category: 'pants',
             image: '/images/d1.jpg',
@@ -99,7 +92,6 @@ const data = {
             description: 'this is high quality product in the market now a days.',
         },
         {
-            _id: '8',
             name: 'Nike Slim Shirt 8',
             category: 'pants',
             image: '/images/d3.jpg',
@@ -111,7 +103,6 @@ const data = {
             description: 'this is high quality product in the market now a days.',
         },
         {
-            _id: '9',
             name: 'Nike Slim Shirt 9',
             category: 'pants',
             image: '/images/d2.jpg',
@@ -123,7 +114,6 @@ const data = {
             description: 'this is high quality product in the market now a days.',
         },
         {
-            _id: '10',
             name: 'Nike Slim Shirt 10',
             category: 'pants',
             image: '/images/d3.jpg',
