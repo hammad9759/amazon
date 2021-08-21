@@ -1,25 +1,25 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addToCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
 
 export default function CartScreen(props) {
   const productId = props.match.params.id;
-  const qty = props.location.search
-    ? Number(props.location.search.split('=')[1])
-    : 1;
+  const qty = props.location.search ? Number(props.location.search.split('=')[1]): 1;
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const dispatch = useDispatch();
   useEffect(() => {
     if (productId) {
+      // adding data to cart function
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
     // delete action
+    dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
@@ -46,14 +46,7 @@ export default function CartScreen(props) {
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </div>
                   <div>
-                    <select
-                      value={item.qty}
-                      onChange={(e) =>
-                        dispatch(
-                          addToCart(item.product, Number(e.target.value))
-                        )
-                      }
-                    >
+                    <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))} >
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
@@ -63,11 +56,7 @@ export default function CartScreen(props) {
                   </div>
                   <div>${item.price}</div>
                   <div>
-                    <button
-                      type="button"
-                      onClick={() => removeFromCartHandler(item.product)}
-                    >
-                      Delete
+                    <button type="button" onClick={() => removeFromCartHandler(item.product)} >Delete
                     </button>
                   </div>
                 </div>
@@ -86,12 +75,7 @@ export default function CartScreen(props) {
               </h2>
             </li>
             <li>
-              <button
-                type="button"
-                onClick={checkoutHandler}
-                className="primary block"
-                disabled={cartItems.length === 0}
-              >
+              <button type="button" onClick={checkoutHandler} className="primary block" disabled={cartItems.length === 0} >
                 Proceed to Checkout
               </button>
             </li>
@@ -101,3 +85,4 @@ export default function CartScreen(props) {
     </div>
   );
 }
+// 4:12
