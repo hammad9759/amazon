@@ -1,10 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 
 function App() {
+    const cart = useSelector((state) => state.cart);
+    const { cartItems } = cart;
+  
 	const openMenu = () =>{
 		document.querySelector(".sidebar").classList.add("open");
 	}
@@ -19,11 +23,15 @@ function App() {
 				<button onClick={openMenu}>
                     &#9776;
                 </button>
-                <a href="/">amazona</a>
+                <Link to="/">amazona</Link>
             </div>
             <div className="header-links">
-                <a href="/cart">Cart</a>
-                <a href="/signin">Signin</a>
+                <Link to="/cart">Cart 
+                {cartItems.length > 0 && (
+                    <span className="badge">{cartItems.length}</span>
+                )}
+                </Link>
+                <Link to="/signin">Signin</Link>
             </div>
         </header>
 
@@ -31,12 +39,12 @@ function App() {
             <h3> Shopping categories </h3>
             <button className="sidebar-close-button" onClick={closeMenu}>x</button>
             <ul className="sidebar_menu">
-                <a href="/pants">
+                <Link to="/pants">
                     <li> pants  </li>
-                </a>
-                <a href="/shirts">
+                </Link>
+                <Link to="/shirts">
                     <li> shirts  </li>
-                </a>
+                </Link>
             </ul>
         </aside>
 
