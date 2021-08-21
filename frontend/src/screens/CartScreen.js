@@ -10,4 +10,3 @@ export default function CartScreen(props) {
         </div>
     )
 }
-// 3:12:26
