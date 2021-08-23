@@ -151,7 +151,6 @@ button.small {
 }
 .form label {
   margin: 1rem 0;
-  display: block;
 }
 
 .brand a {
@@ -407,4 +406,23 @@ img.large {
 }
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* Checkout Steps */
+.checkout-steps{
+  padding: 2rem;
+}
+.checkout-steps > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1;
+  padding: 1rem;
+  font-weight: bold;
+}
+.checkout-steps > div.active {
+  border-top: 6px solid #f08000;
+  color: #f08000;
+}
+.not_active{
+  margin-top: 2px;
 }
