@@ -370,6 +370,7 @@ img.large {
 }
 .hmd-alert{ max-width: 400px; display: block; margin: 10% auto;} 
 .hmd-loading{display: block; margin: 10% auto; text-align: center; font-size: 50px; color: #203040;}
+.hmdButtonLoading{ margin: auto; display: block;}
 .alert {
   padding: 1rem;
   border: 0.1rem solid transparent;
